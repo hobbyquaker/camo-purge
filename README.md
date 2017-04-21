@@ -6,7 +6,7 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License][mit-badge]][mit-url]
 
-> Purge Github Image Cache for Readme Badges
+> Purge Github Image Cache for Readme Badges :shower: :octocat:
 
 Use this if you want to automatically purge the Github Image Cache for your Readme Badges in your Build Process.
 
