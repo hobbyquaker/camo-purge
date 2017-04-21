@@ -8,7 +8,7 @@
 
 > Purge Github Image Cache for Readme Badges
 
-Use this if you want to automatically purge the github image cache for your readme badges in your build process.
+Use this if you want to automatically purge the Github Image Cache for your Readme Badges in your Build Process.
 
 
 ## Usage
