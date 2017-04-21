@@ -18,7 +18,7 @@ In your Node.js project do:
 `npm install --save-dev camo-purge`
 
 You can supply a repository url via the `--repository` option. If you omit that option camo-purge will try to find the 
-repository url in `../../package.json.
+repository url in `../../package.json`.
 
 
 ## License
