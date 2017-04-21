@@ -20,6 +20,7 @@ In your Node.js project do:
 You can supply a repository url via the `--repository` option. If you omit that option camo-purge will try to find the 
 repository url in `../../package.json`.
 
+You can then e.g. just prepend `camo-purge ; ` to your npm test script.
 
 ## License
 
