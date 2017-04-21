@@ -42,9 +42,8 @@ request(url, function (err, res, body) {
         process.exit(1);
     } else {
         var queue = [];
-        var lines = body.split('\n');
-        lines.forEach(function (line) {
-            var match = line.match(/<img src="(https:\/\/camo\.githubusercontent\.com\/[a-f0-9]+\/[a-f0-9]+)" alt="([^"]+)"/);
+        body.split('<img ').forEach(function (line) {
+            var match = line.match(/^src="(https:\/\/camo\.githubusercontent\.com\/[a-f0-9]+\/[a-f0-9]+)" alt="([^"]+)"/);
             if (match) {
                 console.log('Found image', match[2]);
                 queue.push({url: match[1], alt: match[2]});
