@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const request = require('request');
-const async = require('async');
+var fs = require('fs');
+var path = require('path');
+var request = require('request');
+var async = require('async');
 
-const config = require('yargs')
+var config = require('yargs')
     .usage('Usage: $0 [options]')
     .describe('repository', 'url to the projects github repository')
     .alias('r', 'repository')
@@ -13,14 +13,14 @@ const config = require('yargs')
     .version()
     .argv;
 
-let url;
+var url;
 
 if (config.repository) {
     url = config.repository;
 } else {
-    const pkgPath = path.resolve(path.join(__dirname, '..', '..', 'package.json'));
+    var pkgPath = path.resolve(path.join(__dirname, '..', '..', 'package.json'));
     if (fs.existsSync(pkgPath)) {
-        const pkg = require(pkgPath);
+        var pkg = require(pkgPath);
         if (typeof pkg.repository === 'string') {
             url = pkg.repository.replace(/^git\+/, '').replace(/\.git$/, '');
         } else if (typeof pkg.repository === 'object' && pkg.repository.url) {
@@ -36,15 +36,15 @@ if (config.repository) {
     }
 }
 
-request(url, (err, res, body) => {
+request(url, function (err, res, body) {
     if (err) {
         console.error('GET', url, err);
         process.exit(1);
     } else {
-        const queue = [];
-        const lines = body.split('\n');
-        lines.forEach(line => {
-            const match = line.match(/<img src="(https:\/\/camo\.githubusercontent\.com\/[a-f0-9]+\/[a-f0-9]+)" alt="([^"]+)"/);
+        var queue = [];
+        var lines = body.split('\n');
+        lines.forEach(function (line) {
+            var match = line.match(/<img src="(https:\/\/camo\.githubusercontent\.com\/[a-f0-9]+\/[a-f0-9]+)" alt="([^"]+)"/);
             if (match) {
                 console.log('Found image', match[2]);
                 queue.push({url: match[1], alt: match[2]});
@@ -54,12 +54,12 @@ request(url, (err, res, body) => {
             console.error('Error: No images found.');
             process.exit(1);
         } else {
-            async.mapSeries(queue, (obj, cb) => {
+            async.mapSeries(queue, function (obj, cb) {
                 request({
                     method: 'PURGE',
                     url: obj.url,
                     json: true
-                }, (err, res, body) => {
+                }, function (err, res, body) {
                     if (err) {
                         console.error('Error: PURGE', obj.alt, err);
                     } else {

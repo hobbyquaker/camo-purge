@@ -1,13 +1,13 @@
 {
   "name": "camo-purge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Purges the github camo cache of readme badges",
   "main": "index.js",
   "bin": {
     "camo-purge": "./index.js"
   },
   "scripts": {
-    "test": "./index.js -r https://github.com/hobbyquaker/camo-purge ; xo --space 4"
+    "test": "./index.js -r https://github.com/hobbyquaker/camo-purge ; xo --space 4 --no-esnext"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "yargs": "^7.1.0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=4.0.0"
   },
   "devDependencies": {
     "xo": "^0.18.1"
