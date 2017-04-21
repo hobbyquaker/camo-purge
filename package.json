@@ -1,0 +1,42 @@
+{
+  "name": "camo-purge",
+  "version": "1.0.0",
+  "description": "Purges the github camo cache of readme badges",
+  "main": "index.js",
+  "bin": {
+    "camo-purge": "./index.js"
+  },
+  "scripts": {
+    "test": "./index.js -r https://github.com/hobbyquaker/camo-purge ; xo --space 4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/camo-purge.git"
+  },
+  "keywords": [
+    "camo",
+    "cache",
+    "purge",
+    "clear",
+    "github",
+    "readme",
+    "badge"
+  ],
+  "author": "Sebastian Raff <hq@ccu.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/camo-purge/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/camo-purge#readme",
+  "dependencies": {
+    "async": "^2.3.0",
+    "request": "^2.81.0",
+    "yargs": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "xo": "^0.18.1"
+  }
+}
