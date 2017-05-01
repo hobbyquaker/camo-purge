@@ -26,7 +26,7 @@ if (config.repository) {
         } else if (typeof pkg.repository === 'object' && pkg.repository.url) {
             url = pkg.repository.url.replace(/^git\+/, '').replace(/\.git$/, '');
         } else {
-            console.err('Error: No repository information found in', pkgPath);
+            console.error('Error: No repository information found in', pkgPath);
             process.exit(1);
         }
         console.log('Found repository', url);
@@ -37,8 +37,8 @@ if (config.repository) {
 }
 
 request(url, function (err, res, body) {
-    if (err) {
-        console.error('GET', url, err);
+    if (err || res.statusCode !== 200) {
+        console.error('GET', url, res.statusCode, err);
         process.exit(1);
     } else {
         var queue = [];
