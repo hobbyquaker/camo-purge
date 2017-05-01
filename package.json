@@ -1,6 +1,6 @@
 {
   "name": "camo-purge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Purges the github camo cache of readme badges",
   "main": "index.js",
   "bin": {
